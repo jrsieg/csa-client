@@ -3,9 +3,9 @@ import { Link as LinkRouter } from 'react-router-dom';
 import { Link as LinkScroll} from 'react-scroll'; 
 
 export const Nav = styled.nav`
-    background: #000;
+    background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')};
     height: 80px;
-    ${'' /* margin-top: -80px; */}
+    margin-top: -80px;
     display: flex;
     justify-content: cneter;
     align-items: center;
@@ -72,7 +72,7 @@ export const NavItem = styled.li`
     height: 80px;
 `
 
-export const NavLinks = styled(LinkScroll) `
+export const NavLinksScroll = styled(LinkScroll) `
     color: #fff;
     display: flex;
     align-items: center;
@@ -86,7 +86,21 @@ export const NavLinks = styled(LinkScroll) `
     }
 `;
 
-export const NavBtn = styled.nav `
+export const NavLinks = styled(LinkRouter) `
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+
+    &.active {
+        border-bottom: 3px solid #01bf71;
+    }
+`;
+
+export const NavBtn = styled.button `
     display: flex;
     align-items: center;
 
