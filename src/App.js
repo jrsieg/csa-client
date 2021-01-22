@@ -5,6 +5,7 @@ import UserSignup from './components/auth/userAuth/userSignup';
 import UserLogin from './components/auth/userAuth/userLogin';
 import CSALogin from './components/auth/csaAuth/csaLogin';
 import CSASignup from './components/auth/csaAuth/csaSignup';
+import {CSAForm} from './components/auth/CSASignUp/CSAForm'
 import Profiler from './components/Profiler';
 import './App.css';
 
@@ -45,7 +46,7 @@ function App() {
         <Route path="/customersignup" exact ><UserSignup updateToken = {updateToken}/></Route>
         <Route path="/customerlogin" exact ><UserLogin updateToken = {updateToken} /></Route>
         <Route path="/csalogin" exact ><CSALogin updateToken = {updateToken} /></Route>
-        <Route path="/csasignup" exact ><CSASignup updateToken = {updateToken} /></Route>
+        <Route path="/csasignup" exact ><CSAForm updateToken = {updateToken} /></Route>
         <Route path="/browsecsas" component={Profiler} exact />
 
       </Switch>

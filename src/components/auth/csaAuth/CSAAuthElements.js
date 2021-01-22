@@ -125,3 +125,15 @@ export const ModalContainer = styled.div `
     align-items: center;
     height: 100vh;
 `
+
+export const ModalButton = styled.button `
+    min-width: 100px;
+    padding: 16px 32px;
+    border-radius: 4px;
+    border: none;
+    background: #141414;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+
+`

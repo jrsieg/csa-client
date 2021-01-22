@@ -4,7 +4,7 @@ import {useSpring, animated} from 'react-spring';
 import { Background, ModalWrapper, ModalImg, ModalContent, CloseModalButton, Form, FormH1, FormLabel, FormInput, FormButton, Text } from './LoginModalElements';
 
 
-const LoginModal = ({showModal, setShowModal}) => {
+const SignupModal = ({showModal, setShowModal}) => {
 
     
     const modalRef = useRef();
@@ -131,4 +131,4 @@ const LoginModal = ({showModal, setShowModal}) => {
     )
 }
 
-export default LoginModal
+export default SignupModal

@@ -101,8 +101,28 @@ export const NavLinks = styled(LinkRouter) `
 `;
 
 export const NavBtn = styled.button `
+    margin-top: 5px;
+
     display: flex;
     align-items: center;
+    border-radius: 15px;
+    background: #01bf71;
+    white-space: nowrap;
+    padding: 0 1rem;
+    color: #010606;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        transitions: all 0.2s ease-in-out;
+        background: #fff;
+        color: #010606;
+    }
+
 
     @media screen and (max-width: 768px) {
         display: none;

@@ -22,15 +22,22 @@ export default class Profiler extends React.Component {
         this.setState({ profile: data, loading: false});
     }
 
-    async handleSubmit(event) {
-        event.preventDefault();
-        fetch(`http://localhost:3000/junction/csa/:${this.state.profile.id}`, {
+    async handleSubmit(csaID) {
+        fetch(`http://localhost:3000/junction/csa/${csaID}`, {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('sessionToken')
             })
+        }) .then(
+            (response) => response.json()
+        ).then((data) => {
+            console.log(data)
+        }) .catch((err) => {
+            console.log(err)
         })
+            
+        
     }
 
     render() {
@@ -54,7 +61,7 @@ export default class Profiler extends React.Component {
                                                 <ServicesP>{info.farmName} sell carrots, beef, and chicken.</ServicesP>
                                                 (sessionToken ?
                                                 <BtnWrap>
-                                                    <Button onClick = {this.handleSubmit}
+                                                    <Button onClick = {() => this.handleSubmit(info.id)}
                                                     
                                                     >Join this CSA</Button> 
                                                 </BtnWrap>: null)
