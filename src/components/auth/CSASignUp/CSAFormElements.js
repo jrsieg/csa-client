@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Link as LinkRouter } from 'react-router-dom';
-import { Link as LinkScroll} from 'react-scroll'; 
-
 
 export const Container = styled.div `
     min-height: 692px;
@@ -64,7 +61,6 @@ export const Form = styled.form `
     z-index: 1;
     display: grid;
     margin: 0 auto;
-    margin-top: -6em;
     padding: 80px 32px;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
@@ -75,9 +71,9 @@ export const Form = styled.form `
 `;
 
 export const FormH1 = styled.h1 `
-    margin-bottom: 2em;
+    margin-bottom: 40px;
     color: #fff;
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: 400;
     text-align: center;
 `;
@@ -123,7 +119,7 @@ export const FormInputPara = styled.textarea `
 `;
 
 
-export const FormButton = styled(Link)`
+export const FormButton = styled.button `
     background: #01bf71;
     padding: 16px 0;
     border: none;
@@ -135,7 +131,7 @@ export const FormButton = styled(Link)`
 
 `;
 
-export const FormButtonSecondary = styled(Link) `
+export const FormButtonSecondary = styled.button `
     background: #fff;
     padding: 16px 0;
     border: none;
@@ -157,48 +153,9 @@ export const FormLink = styled(Link)`
 `
 
 
-export const BtnLink = styled(LinkRouter) `
-    border-radius: 50px;
-    background: #01bf71;
-    white-space: nowrap;
-    padding: 10px 22px;
-    color: #010606;
-    font-size: 1.75em;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
+export const Text = styled.span `
     text-align: center;
-    margin-top: 1em;
-
-    &:hover {
-        transitions: all 0.2s ease-in-out;
-        background: #fff;
-        color: #010606;
-    }
-
-`;
-
-export const BtnLinkSecondary = styled(LinkRouter) `
-    border-radius: 50px;
-    background: #fff;
-    white-space: nowrap;
-    padding: 10px 22px;
-    color: #010606;
-    font-size: 1.75em;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 1em;
-
-    &:hover {
-        transitions: all 0.2s ease-in-out;
-        background: #01bf71;
-        color: #010606;
-    }
-
-`;
+    margin-top: 24px;
+    color: #fff;
+    font-size: 14px;
+`

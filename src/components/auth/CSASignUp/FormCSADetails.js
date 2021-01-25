@@ -1,51 +1,108 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import { 
+  Container,
+  FormWrap,
+  Icon,
+  FormContent,
+  Form,
+  FormH1,
+  FormLabel,
+  FormInput,
+  FormButton,
+  FormButtonSecondary,
+  FormLink,
+  Text
+} from './CSAFormElements';
 
+
+
+
+
+  
 export class FormCSADetails extends Component {
 
+
+ 
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     }
+
+    back = e => {
+      e.preventDefault();
+      this.props.prevStep();
+  }
+
+
     render() {
         const { values, handleChange } = this.props;
         return (
-            <MuiThemeProvider>
-                <React.Fragment>
-                    <AppBar title="Enter User Details" />
-                    <TextField 
-                        hintText="Enter Your First Name"
-                        floatingLabelText="First Name"
-                        onChange={handleChange('firstName')}
-                        defaultValue={values.firstName}
-                    />
-                    <br/>
-                    <TextField 
-                        hintText="Enter Your Last Name"
-                        floatingLabelText="Last Name"
-                        onChange={handleChange('lastName')}
-                        defaultValue={values.lastName}
-                    />
-                    <br/>
-                    <TextField 
-                        hintText="Enter Your Email"
-                        floatingLabelText="Email"
-                        onChange={handleChange('Email')}
-                        defaultValue={values.Email}
-                    />
-                    <br/>
-                    <RaisedButton 
-                        label="Continue"
-                        primary={true}
-                        styles={styles.button}
-                        onClick={this.continue}
-                    />
 
-                </React.Fragment>
-            </MuiThemeProvider>
+          <>
+          <Container>
+              <FormWrap>
+                  <Icon to="/">myCSA</Icon>
+                  <FormContent>
+                      <Form>
+                          <FormH1>Account Details</FormH1>
+
+                          <FormLabel htmlFor='for'>CSA Name</FormLabel>
+  
+                            <FormInput 
+                              onChange={handleChange('csaName')}
+                              defaultValue={values.csaName}
+
+                            />
+
+  
+                          <FormLabel htmlFor='for'>First Name</FormLabel>
+  
+                          <FormInput 
+                            onChange={handleChange('firstName')}
+                            defaultValue={values.firstName}
+
+                          />
+
+                          <FormLabel htmlFor='for'>Last Name</FormLabel>
+                            
+                          <FormInput 
+                            onChange={handleChange('lastName')}
+                            defaultValue={values.lastName}
+
+                          />
+
+                          <FormLabel htmlFor='for'>Zip Code</FormLabel>
+                            
+                          <FormInput 
+                            onChange={handleChange('zipcode')}
+                            defaultValue={values.zipcode}
+
+                          />
+  
+  
+  
+                          <FormButton type='submit'
+                            label="Continue"
+                            primary={true}
+                            onClick={this.continue}
+
+                          
+                          >Continue</FormButton>
+
+                          <FormButtonSecondary type='submit'
+                              label="Back"
+                              primary={true}
+                              onClick={this.back}
+  
+                            
+                            >Back</FormButtonSecondary>
+
+                      </Form>
+                  </FormContent>
+              </FormWrap>
+          </Container>
+      </>
+        
         )
     }
 }

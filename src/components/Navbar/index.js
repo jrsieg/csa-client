@@ -58,13 +58,13 @@ export const Navbar = (props) => {
 
                     </NavMenu>
                     <NavBtn onClick={openModal}>Log In</NavBtn>
+    
+
                     <LoginModal showModal={showModal} setShowModal={setShowModal} />
-                    {/* <NavBtn>
-                        <NavBtnLink to="/customersignup">Customer Sign Up</NavBtnLink>
-                    </NavBtn>
                     <NavBtn>
-                        <NavBtnLink to="/csasignup">CSA Sign Up</NavBtnLink>
-                    </NavBtn> */}
+                        <NavBtnLink to="/signuplanding">Sign Up</NavBtnLink>
+                    </NavBtn>
+
 
                 </NavbarContainer>
             </Nav>

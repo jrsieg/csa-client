@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import FormCSAUsername from './FormCSAUsername'
 import FormCSADetails from './FormCSADetails';
+import FormProduceDetails from './FormProduceDetails'
+import Confirm from './Confirm';
+import Success from './Success'
 
 
 export class CSAForm extends Component {
@@ -8,9 +12,10 @@ export class CSAForm extends Component {
 
         step: 1,
         email: '',
+        password: '',
         firstName: '',
         lastName: '',
-        farmName: '',
+        csaName: '',
         bio: '',
         zipcode: '',
         produce: ''
@@ -37,28 +42,54 @@ export class CSAForm extends Component {
         this.setState({[input]: e.target.value})
     }
 
+    
+
 
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, farmName, bio, zipcode, produce } = this.state;
-        const values = { firstName, lastName, email, farmName, bio, zipcode, produce }
+        const { firstName, lastName, email, password, csaName, bio, zipcode, produce } = this.state;
+        const values = { firstName, lastName, email, csaName, password, bio, zipcode, produce }
         switch(step) {
+
             case 1:
                 return (
-                    <FormCSADetails 
+                    <FormCSAUsername
                         nextStep = {this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
                 )
             case 2:
-                return <h1>FarmPersonalDetails</h1>
-
+                return (
+                    <FormCSADetails 
+                        nextStep = {this.nextStep}
+                        prevStep = {this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                )
             case 3:
-                return <h1>Confirm</h1>
+                return (
+                    <FormProduceDetails 
+                        nextStep = {this.nextStep}
+                        prevStep = {this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                )
 
             case 4:
-                return <h1>Success</h1>
+                return (
+                    <Confirm
+                        nextStep = {this.nextStep}
+                        prevStep = {this.prevStep}
+                        values={values}
+                        updateToken = {this.props.updateToken}
+                    />
+                )
+
+            case 5:
+                return <Success/>
 
     
         }
