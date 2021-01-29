@@ -51,6 +51,8 @@ const LoginModal = ({showModal, setShowModal}) => {
             (response) => response.json()
         ).then((data) => {
             localStorage.setItem("sessionToken", data.sessionToken)
+            ////////////// SETTING USER TYPE FOR TERNARY ON ACCOUNT PAGE//////////
+            localStorage.setItem("userType", "user")
             updateToken(data.sessionToken)
         })
     }
@@ -66,7 +68,12 @@ const LoginModal = ({showModal, setShowModal}) => {
         }).then(
             (response) => response.json()
         ).then((data) => {
+            console.log(data)
+            localStorage.setItem("csaId", data.csa.id)
             localStorage.setItem("sessionToken", data.sessionToken)
+            ////////////// SETTING USER TYPE FOR TERNARY ON ACCOUNT PAGE//////////
+            localStorage.setItem("userType", "csa")
+
             updateToken(data.sessionToken)
         })
     }
@@ -114,7 +121,7 @@ const LoginModal = ({showModal, setShowModal}) => {
                             <FormLabel htmlFor='for'>Password</FormLabel>
                             <FormInput type='Password' onChange={(e) => setPassword(e.target.value)} name="password" value={password} required />
 
-                            <FormButton onClick={handleCSASubmit} type='submit'>Customer Login</FormButton>
+                            <FormButton onClick={handleCSASubmit} type='submit'>CSA Login</FormButton>
                         </Form>
 
                         

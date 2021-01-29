@@ -25,6 +25,8 @@ export const Navbar = (props) => {
         }
     }
 
+    
+
     useEffect(() => {
         window.addEventListener('scroll', changeNav)
     }, [])
@@ -32,6 +34,14 @@ export const Navbar = (props) => {
     const toggleHome = () => {
         scroll.scrollToTop();
     };
+
+    const clearToken = () => {
+        localStorage.clear();
+        window.location.reload();
+      }
+
+
+    const sessionToken = localStorage.getItem('sessionToken')
 
     return (
         <>
@@ -49,7 +59,7 @@ export const Navbar = (props) => {
                             <NavLinksScroll to="about" smooth={true} duration={500} spy={true} exact='true' offset={-80}>About</NavLinksScroll>
                         </NavItem>
                         <NavItem>
-                            <NavLinksScroll to="howitworks" smooth={true} duration={500} spy={true} exact='true' offset={-80}>How It Works</NavLinksScroll>
+                            <NavLinksScroll to="foodmatters" smooth={true} duration={500} spy={true} exact='true' offset={-80}>Food Matters</NavLinksScroll>
                         </NavItem>
 
                         <NavItem>
@@ -57,13 +67,29 @@ export const Navbar = (props) => {
                         </NavItem>
 
                     </NavMenu>
-                    <NavBtn onClick={openModal}>Log In</NavBtn>
-    
 
+                    {sessionToken ? 
+
+                    <React.Fragment>
+     
+                        <NavBtnLink to="/account">Account</NavBtnLink>
+
+
+         
+                        <NavBtn onClick={clearToken}>Log Out</NavBtn>
+      
+                    </React.Fragment>
+   
+                    
+                    :
+
+                    <React.Fragment>
+                    <NavBtn onClick={openModal}>Log In</NavBtn>
                     <LoginModal showModal={showModal} setShowModal={setShowModal} />
                     <NavBtn>
                         <NavBtnLink to="/signuplanding">Sign Up</NavBtnLink>
-                    </NavBtn>
+                    </NavBtn> </React.Fragment> }
+
 
 
                 </NavbarContainer>

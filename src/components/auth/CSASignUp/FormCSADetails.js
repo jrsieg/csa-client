@@ -43,14 +43,16 @@ export class FormCSADetails extends Component {
               <FormWrap>
                   <Icon to="/">myCSA</Icon>
                   <FormContent>
-                      <Form>
+                      <Form onSubmit = {() => {
+                        this.continue()
+                      }}>
                           <FormH1>Account Details</FormH1>
 
                           <FormLabel htmlFor='for'>CSA Name</FormLabel>
   
                             <FormInput 
                               onChange={handleChange('csaName')}
-                              defaultValue={values.csaName}
+                              defaultValue={values.csaName} required
 
                             />
 
@@ -75,23 +77,21 @@ export class FormCSADetails extends Component {
                             
                           <FormInput 
                             onChange={handleChange('zipcode')}
-                            defaultValue={values.zipcode}
+                            defaultValue={values.zipcode} required
 
                           />
   
   
   
-                          <FormButton type='submit'
+                          <FormButton 
+                            type='submit'
                             label="Continue"
-                            primary={true}
-                            onClick={this.continue}
-
                           
                           >Continue</FormButton>
 
-                          <FormButtonSecondary type='submit'
+                          <FormButtonSecondary 
+                              type='submit'
                               label="Back"
-                              primary={true}
                               onClick={this.back}
   
                             

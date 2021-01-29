@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const ServicesContainer = styled.div `
+
+
+export const CardContainer = styled.div `
     height: 800px;
     display: flex;
     flex-direction: column;
@@ -17,7 +19,7 @@ export const ServicesContainer = styled.div `
     }
 `
 
-export const ServicesWrapper = styled.div `
+export const CardWrapper = styled.div `
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
@@ -36,7 +38,7 @@ export const ServicesWrapper = styled.div `
     }
 `
 
-export const ServicesCard = styled.div `
+export const Card = styled.div `
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -55,13 +57,13 @@ export const ServicesCard = styled.div `
     }
 `
 
-export const ServicesIcon = styled.img `
+export const CardIcon = styled.img `
     height: 160px;
     width: 160px;
     margin-bottom: 10px;
 `
 
-export const ServicesH1 = styled.h1 `
+export const CardH1 = styled.h1 `
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 64px;
@@ -71,16 +73,22 @@ export const ServicesH1 = styled.h1 `
     }
 `
 
-export const ServicesH2 = styled.h2 `
+export const CardH2 = styled.h2 `
     font-size: 1rem;
     margin-bottom: 10px;
 
 `
 
-export const ServicesP = styled.p `
+export const Details = styled.div`
+    max-height: ${props => props.open ? "100%" : "0"};
+    overflow: hidden;
+    padding: ${props => props.open ? "25px 0" : "0"};
+    transition: all 0.3s ease-out;
     font-size: 1rem;
     text-align: center;
-`
+`;
+
+
 
 
 export const BtnWrap = styled.div `

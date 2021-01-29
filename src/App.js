@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Home from './components/pages'
-import UserSignup from './components/auth/userAuth/userSignup';
-import UserLogin from './components/auth/userAuth/userLogin';
-import CSALogin from './components/auth/csaAuth/csaLogin';
-import CSASignup from './components/auth/csaAuth/csaSignup';
+import Home from './components/Home'
+import UserSignup from './components/auth/UserSignUp/userSignup';
+import UserLogin from './components/auth/UserSignUp/userSignup';
 import CSAForm from './components/auth/CSASignUp/CSAForm'
-import Profiler from './components/Profiler';
 import SignupLanding from './components/auth/SignUpLanding/SignupLanding'
+import Footer from './components/Footer/index';
+import Profiler from './components/Profiler/test'
+import Navbar from './components/Navbar/index'
+import UserAccount from './components/Account/UserAccount';
+import CSAAccount from './components/Account/CSAAccount';
+
 import './App.css';
 
 function App() {
@@ -38,18 +41,20 @@ function App() {
   } 
 
   return (
+    <>
     <Router>
+      <Navbar/>
       <div>
 
 
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/customersignup" exact ><UserSignup updateToken = {updateToken}/></Route>
-        <Route path="/customerlogin" exact ><UserLogin updateToken = {updateToken} /></Route>
-        <Route path="/csalogin" exact ><CSALogin updateToken = {updateToken} /></Route>
         <Route path="/csasignup" exact ><CSAForm updateToken = {updateToken} /></Route>
         <Route path="/browsecsas" component={Profiler} exact />
         <Route path="/signuplanding" exact ><SignupLanding/></Route>
+        <Route path="/account" exact >{localStorage.getItem('userType') === 'csa' ?  <CSAAccount/> : <UserAccount/>}</Route>
+
 
 
 
@@ -57,7 +62,13 @@ function App() {
 
 
       </div>
+      <Footer/>
+
     </Router>
+
+
+    </>
+
 
 
   );

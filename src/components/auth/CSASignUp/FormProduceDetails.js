@@ -37,14 +37,16 @@ export class FormProduceDetails extends Component {
                 <FormWrap>
                     <Icon to="/">myCSA</Icon>
                     <FormContent>
-                        <Form>
+                        <Form onSubmit = {() => {
+                        this.continue()
+                      }}>
                             <FormH1>CSA Details</FormH1>
   
                             <FormLabel htmlFor='for'>What produce do you sell?</FormLabel>
     
                               <FormInput 
                                 onChange={handleChange('produce')}
-                                defaultValue={values.produce}
+                                defaultValue={values.produce} required
   
                               />
   
@@ -58,17 +60,14 @@ export class FormProduceDetails extends Component {
                             />
       
     
-                            <FormButton type='submit'
-                              label="Continue"
-                              primary={true}
-                              onClick={this.continue}
-  
+                            <FormButton 
+                              type='submit'
+                              label="Continue"  
                             
                             >Continue</FormButton>
 
                             <FormButtonSecondary type='submit'
                               label="Back"
-                              primary={true}
                               onClick={this.back}
   
                             

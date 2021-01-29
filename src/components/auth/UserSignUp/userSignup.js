@@ -9,13 +9,13 @@ import {
     FormLabel,
     FormInput,
     FormButton,
-    Text,
-    FormLink
-} from './CSAAuthElements';
+    FormLink,
+    Text
+} from './userAuthElements';
 
+// import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
-const CSASignup = (props) => {
-    const [farmName, setFarmName] = useState('');
+const UserSignup = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -23,20 +23,24 @@ const CSASignup = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/csa/signup", {
+        fetch("http://localhost:3000/user/signup", {
             method: 'POST',
-            body: JSON.stringify({farmName: farmName, firstName: firstName, lastName: lastName, email: email, password: password}),
+            body: JSON.stringify({firstName: firstName, lastName: lastName, email: email, password: password}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
         }).then(
             (response) => response.json()
         ).then((data) => {
+            ////////////// SETTING USER TYPE FOR TERNARY ON ACCOUNT PAGE//////////
+            localStorage.setItem("userType", "user")
             props.updateToken(data.sessionToken)
+
         })
     }
 
     return(
+
         <>
         <Container>
             <FormWrap>
@@ -45,11 +49,8 @@ const CSASignup = (props) => {
                     <Form onSubmit={handleSubmit}>
                         <FormH1>Create a new account</FormH1>
 
-                        <FormLabel htmlFor='for'>Farm Name</FormLabel>
-                        <FormInput type='Farm Name' onChange={(e) => setFirstName(e.target.value)} name="farmName" value={farmName}/>
-
-
                         <FormLabel htmlFor='for'>First Name</FormLabel>
+
                         <FormInput type='First Name' onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
 
                         <FormLabel htmlFor='for'>Last Name</FormLabel>
@@ -62,15 +63,37 @@ const CSASignup = (props) => {
                         <FormInput type='Password' onChange={(e) => setPassword(e.target.value)} name="password" value={password} required />
 
                         <FormButton type='submit'>Continue</FormButton>
-                        <FormLink to='/csalogin'>Sign in</FormLink>
+                        <FormLink to='/customerlogin'>Sign in</FormLink>
                         <Text>Forgot password</Text>
                     </Form>
                 </FormContent>
             </FormWrap>
         </Container>
-        </>
+    </>
 
+        // {/* <div>
+        //     <h1>User Sign Up</h1>
+        //     <Form onSubmit={handleSubmit}>
+        //         <FormGroup>
+        //             <Label htmlFor="firstName">First Name</Label>
+        //             <Input onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
+        //         </FormGroup>
+        //         <FormGroup>
+        //             <Label htmlFor="lastName">Last Name</Label>
+        //             <Input onChange={(e) => setLastName(e.target.value)} name="lastName" value={lastName}/>
+        //         </FormGroup>
+        //         <FormGroup>
+        //             <Label htmlFor="email">Email</Label>
+        //             <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}/>
+        //         </FormGroup>
+        //         <FormGroup>
+        //             <Label htmlFor="password">Password</Label>
+        //             <Input onChange = {(e) => setPassword(e.target.value)} name="password" value={password}/>
+        //         </FormGroup>
+        //         <Button type="submit">Signup</Button>
+        //     </Form>
+        // </div> */}
     )
 }
 
-export default CSASignup;
+export default UserSignup;

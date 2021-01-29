@@ -3,9 +3,8 @@ import Sidebar from '../Sidebar';
 import Navbar from '../Navbar'
 import HeroSection from '../HeroSection';
 import InfoSection from '../InfoSection';
-import { homeObjOne, homeObjTwo, homeObjThree } from '../../components/InfoSection/Data'
+import { homeObjOne, homeObjTwo, homeObjThree } from '../InfoSection/Data'
 import Services from '../Services'
-import Footer from '../Footer'
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -13,6 +12,10 @@ const Home = () => {
     const toggle = () => {
         setIsOpen(!isOpen)
     }
+
+
+
+    
 
     return (
         <>
@@ -23,7 +26,6 @@ const Home = () => {
             <InfoSection {...homeObjTwo}/>
             <InfoSection {...homeObjThree}/>
             <Services />
-            <Footer/>
             
         </>
     )

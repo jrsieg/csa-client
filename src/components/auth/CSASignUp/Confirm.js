@@ -36,6 +36,9 @@ export class Confirm extends Component {
         }).then(
             (response) => response.json()
         ).then((data) => {
+            ////////////// SETTING USER TYPE FOR TERNARY ON ACCOUNT PAGE//////////
+            localStorage.setItem("userType", "csa")
+            localStorage.setItem("csaId", data.csa.id)
             this.props.updateToken(data.sessionToken)
         }) .catch(
             err => console.log(err)
@@ -47,6 +50,7 @@ export class Confirm extends Component {
         e.preventDefault();
         this.props.prevStep();
     }
+
 
     render() {
         const { values: {email, password, firstName, lastName, csaName, bio, zipcode, produce }} = this.props;
@@ -64,7 +68,7 @@ export class Confirm extends Component {
                             <ConfirmLabel htmlFor='for'>CSA Name</ConfirmLabel>
     
                             <ConfirmLabelSecondary>
-                                {csaName}
+                                {csaName} 
                             </ConfirmLabelSecondary>
 
                             <ConfirmLabel htmlFor='for'>Password</ConfirmLabel>

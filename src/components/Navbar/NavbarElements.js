@@ -3,11 +3,12 @@ import { Link as LinkRouter } from 'react-router-dom';
 import { Link as LinkScroll} from 'react-scroll'; 
 
 export const Nav = styled.nav`
-    background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')};
-    height: 80px;
-    margin-top: -80px;
+    ${'' /* background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')}; */}
+    background: #010606;
+    height: 5em;
+    margin-top: -5em;
     display: flex;
-    justify-content: cneter;
+    justify-content: center;
     align-items: center;
     font-size: 1rem;
     position: sticky;
@@ -22,7 +23,7 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 5em;
     z-index: 1;
     width: 100%;
     padding: 0 24px;
@@ -101,8 +102,8 @@ export const NavLinks = styled(LinkRouter) `
 `;
 
 export const NavBtn = styled.button `
-    margin-top: 5px;
-
+    margin-top: .5rem;
+    margin-bottom: .5rem;
     display: flex;
     align-items: center;
     border-radius: 15px;
@@ -130,10 +131,14 @@ export const NavBtn = styled.button `
 `
 
 export const NavBtnLink = styled(LinkRouter) `
-    border-radius: 50px;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
     background: #01bf71;
     white-space: nowrap;
-    padding: 10px 22px;
+    padding: 0 1rem;
     color: #010606;
     font-size: 16px;
     outline: none;
@@ -148,7 +153,10 @@ export const NavBtnLink = styled(LinkRouter) `
         color: #010606;
     }
 
-`;
 
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+`
 
 

@@ -5,7 +5,7 @@ export const homeObjOne = {
     lightTextDesc: true,
     topLine: 'Eat Local',
     headLine: 'Garden Fresh Food without Garden Hassle',
-    description: 'Buying local produce ensures your food si freshier and healthier than anything you can get a grocery store.',
+    description: 'Buying local produce ensures your food is freshier and healthier than anything you can get a grocery store.',
     buttonLabel: 'Get started',
     imgStart: false,
     img: "/images/nature.svg",
@@ -16,7 +16,7 @@ export const homeObjOne = {
 }
 
 export const homeObjTwo = {
-    id: 'How it Works',
+    id: 'about',
     lightBg: true,
     lightText: false,
     lightTextDesc: false,
@@ -33,7 +33,7 @@ export const homeObjTwo = {
 }
 
 export const homeObjThree = {
-    id: 'signup',
+    id: 'about',
     lightBg: true,
     lightText: false,
     lightTextDesc: false,
