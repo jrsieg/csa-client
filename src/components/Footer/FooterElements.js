@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom';
 export const FooterContainer = styled.footer `
     background-color: #101522;
     margin-top: auto;
+    ${'' /* display: flex; */}
+    min-height: 100vh;
+    flex-direction:column;
   
 `
 

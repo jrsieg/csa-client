@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon1 from '../../assets/images/nature.svg'
-import Icon2 from '../../assets/images/flowers.svg'
+import Icon2 from '../../assets/images/flavor.svg'
 import Icon3 from '../../assets/images/farmGirl.svg'
 import {ServicesContainer, ServicesH1, ServicesWrapper, ServicesCard, ServicesIcon, ServicesH2, ServicesP} from './ServicesElements';
 

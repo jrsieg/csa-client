@@ -1,71 +1,24 @@
-# Getting Started with Create React App
+NAME:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+myCSA -- the customer and farmer connection application
 
-## Available Scripts
+DESCRIPTION: 
 
-In the project directory, you can run:
+This app allows both Community Supported Agriculture businesses(CSA) and Customers to create profiles to connect with each other. CSAs can post information about produce they offer, as well as location and contact information. Customers can browse through those profiles and find the CSA that matches thier needs and connect with them. 
 
-### `npm start`
+    ---background:
+    As of the time of this writing, there is no centralized place for CSAs to connect with customers. Most farmers do not have the time or know-how to create a compelling online presence through a personal website. Likewise, searching for CSAs in a given area can be tricky for customers, as there is not a centralized, curated list available with easy-to-access information. myCSA solves this. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+SUPPORT:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Email the developer at jonathanrsieg@gmail.com for support. 
 
-### `npm test`
+ROADMAP:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Future releases will allow much more customization in the profile for CSAs. Additionally, an in-app messaging system and alter system will be created to allow customers and CSA to communicate directly in the app, as well as provide alerts for produce deliveries. 
 
-### `npm run build`
+LICENSE:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This application is licenced as "Free and Open Source Software."
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# csa-client

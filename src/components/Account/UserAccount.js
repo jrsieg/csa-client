@@ -17,16 +17,30 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import {CardContainer} from './ProfilerElements'
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Grid';
+
 import Button from '@material-ui/core/Button';
+import FormButton from './AccountElements'
 
 const useStyles = theme => ({
-    gridContainer: {
 
-        marginTop: '3.2rem',
-        marginLeft: '.25rem',
-        marginRight: '.25rem',
-        backgroundColor: '#010606'
-    },
+  boxContainer: {
+    marginTop: '5rem',
+    // marginLeft: '.25rem',
+    // marginRight: '.25rem',
+    backgroundColor: '#010606',
+  },
+  gridContainer: {
+
+    paddingTop: '10rem',
+    paddingLeft: '5rem',
+    paddingRight: '5rem',
+    paddingBottom: '3rem',
+    backgroundColor: '#010606',
+    
+
+  },
+    
   root: {
     flexGrow: 1,
     padding: theme.spacing(2),
@@ -89,6 +103,20 @@ const useStyles = theme => ({
     height: 60,
     margin: 'auto',
   },
+  button: {
+    paddingLeft: '10rem',
+    backgroundColor: '#fff !important',
+    color: '#fb703c',
+    boxShadow: '0 2px 6px #d0efef',
+    borderRadius: 12,
+    minWidth: 120,
+    minHeight: 42,
+    textTransform: 'initial',
+    fontSize: '0.875rem',
+    fontWeight: 700,
+    letterSpacing: 0,
+  },
+
 });
 
 class UserAccount extends React.Component {
@@ -109,7 +137,7 @@ class UserAccount extends React.Component {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('sessionToken')
+                'Authorization': localStorage.getItem('token')
             })
         }) .then(
             (response) => response.json()
@@ -124,6 +152,28 @@ class UserAccount extends React.Component {
         
     }
 
+    deleteUser = (event) => {
+      event.preventDefault();
+
+
+      fetch("http://localhost:3000/user/deleteuser", {
+          method: 'DELETE',
+          body: JSON.stringify(),
+          headers: new Headers({
+              'Content-Type': 'application/json'
+          })
+      }).then(
+          (response) => response.json()
+      ).then((data) => {
+          ////////////// SETTING USER TYPE FOR TERNARY ON ACCOUNT PAGE//////////
+          localStorage.setItem("userType", "csa")
+          localStorage.setItem("csaId", data.csa.id)
+      }) .catch(
+          err => console.log(err)
+      )
+      this.props.nextStep();
+  }
+
     
 
 
@@ -136,7 +186,8 @@ class UserAccount extends React.Component {
 
         return (
             <div>
-            <Grid container spacing={8} className={classes.gridContainer}>
+
+            <Grid justify-content='center' align-items='center' container spacing={8} className={classes.gridContainer}>
 
             {this.state.loading || !this.state.profile ? (<div>loading...</div>) : (
 
@@ -146,7 +197,7 @@ class UserAccount extends React.Component {
 
                 return(
                 <React.Fragment>
-                <Grid item>
+                <Grid item justify-content='center' align-items='center'>
                 <Card className={classes.root}>
 
                 <CardHeader
@@ -155,11 +206,11 @@ class UserAccount extends React.Component {
                     //     R
                     // </Avatar>
                     // }
-                    action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                    }
+                    // action={
+                    // <IconButton aria-label="settings">
+                    //     <MoreVertIcon />
+                    // </IconButton>
+                    // }
                     title={info.csaName}
                     subheader= {info.firstName}
                 />
@@ -196,6 +247,10 @@ class UserAccount extends React.Component {
                     <Typography paragraph>
                     {info.bio}
                     </Typography>
+                    <Typography paragraph>Produce:</Typography>
+                    <Typography paragraph>
+                    {info.produce}
+                    </Typography>
                     <Typography paragraph>Contact Info:</Typography>
                     <Typography paragraph>
                     Name: {info.firstName} {info.lastName}
@@ -207,9 +262,13 @@ class UserAccount extends React.Component {
                 </Collapse>
                 </Card>
                 </Grid>
+
                 </React.Fragment>
+
+
                 )
             }
+
             )
 
             
@@ -217,7 +276,9 @@ class UserAccount extends React.Component {
             
             )}
             </Grid>
-
+            {/* <Box justify-content='center' align-items='center' classeName={classes.boxContainer}> */}
+            <Button variant="contained" size="large" onClick={this.deleteUser} classname={classes.button}>Delete Your Profile</Button>
+            {/* </Box> */}
             </div>
         );
     }

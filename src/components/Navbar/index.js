@@ -41,7 +41,7 @@ export const Navbar = (props) => {
       }
 
 
-    const sessionToken = localStorage.getItem('sessionToken')
+    const sessionToken = localStorage.getItem('token')
 
     return (
         <>
@@ -62,9 +62,13 @@ export const Navbar = (props) => {
                             <NavLinksScroll to="foodmatters" smooth={true} duration={500} spy={true} exact='true' offset={-80}>Food Matters</NavLinksScroll>
                         </NavItem>
 
-                        <NavItem>
+                        {localStorage.getItem('userType') === "user" ?
+                            <NavItem>
                             <NavLinks to="/browsecsas" smooth={true} duration={500} spy={true} exact='true' offset={-80}>Browse CSAs</NavLinks>
-                        </NavItem>
+                            </NavItem>
+                            
+                            : null
+                        }
 
                     </NavMenu>
 
@@ -86,9 +90,9 @@ export const Navbar = (props) => {
                     <React.Fragment>
                     <NavBtn onClick={openModal}>Log In</NavBtn>
                     <LoginModal showModal={showModal} setShowModal={setShowModal} />
-                    <NavBtn>
+                    
                         <NavBtnLink to="/signuplanding">Sign Up</NavBtnLink>
-                    </NavBtn> </React.Fragment> }
+                    </React.Fragment> }
 
 
 
