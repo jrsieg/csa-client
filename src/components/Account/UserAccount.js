@@ -133,7 +133,7 @@ class UserAccount extends React.Component {
 
 
     async componentDidMount() {
-        fetch(`http://localhost:3000/junction/yourcsas`, {
+        fetch(`${APIURL}/junction/yourcsas`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ class UserAccount extends React.Component {
       event.preventDefault();
 
 
-      fetch("http://localhost:3000/user/deleteuser", {
+      fetch(`${APIURL}/user/deleteuser`, {
           method: 'DELETE',
           body: JSON.stringify(),
           headers: new Headers({

@@ -105,7 +105,7 @@ class Profiler extends React.Component {
 
 
     async componentDidMount() {
-        const url = "http://localhost:3000/csa/browsecsas";
+        const url = `${APIURL}/csa/browsecsas`;
         const response = await fetch(url);
         const data = await response.json();
         console.log(data)
@@ -113,7 +113,7 @@ class Profiler extends React.Component {
     }
 
     async handleSubmit(csaID) {
-        fetch(`http://localhost:3000/junction/csa/${csaID}`, {
+        fetch(`${APIURL}/junction/csa/${csaID}`, {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',

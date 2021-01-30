@@ -106,7 +106,7 @@ class CSAAccount extends React.Component {
 
 
     async componentDidMount() {
-        fetch(`http://localhost:3000/junction/yourusers/${this.state.csaId}`, {
+        fetch(`${APIURL}/junction/yourusers/${this.state.csaId}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
