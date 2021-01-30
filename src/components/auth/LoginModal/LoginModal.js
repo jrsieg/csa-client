@@ -3,6 +3,7 @@ import React, {useRef, useEffect, useCallback, useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 import { Background, ModalWrapper, ModalImg, ModalContent, CloseModalButton, Form, FormH1, FormLabel, FormInput, FormButton, Text } from './LoginModalElements';
 
+import APIURL from '../../../helpers/environment'
 
 const LoginModal = ({showModal, setShowModal}) => {
 
@@ -41,7 +42,7 @@ const LoginModal = ({showModal, setShowModal}) => {
 
     const handleUserSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/user/signin", {
+        fetch(`${APIURL}/user/signin`, {
             method: 'POST',
             body: JSON.stringify({email: email, password: password}),
             headers: ({
@@ -59,7 +60,7 @@ const LoginModal = ({showModal, setShowModal}) => {
 
     const handleCSASubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/csa/signin", {
+        fetch(`${APIURL}/csa/signin`, {
             method: 'POST',
             body: JSON.stringify({email: email, password: password}),
             headers: new Headers({

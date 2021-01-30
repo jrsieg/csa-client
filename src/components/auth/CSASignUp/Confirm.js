@@ -17,6 +17,8 @@ import {
     Text
   } from './CSAFormElements';
 
+  import APIURL from '../../../helpers/environment'
+
 
 export class Confirm extends Component {
 
@@ -27,7 +29,7 @@ export class Confirm extends Component {
         event.preventDefault();
         const { values: {email, password, firstName, lastName, csaName, bio, zipcode, produce }} = this.props;
 
-        fetch("http://localhost:3000/csa/signup", {
+        fetch(`${APIURL}/csa/signup`, {
             method: 'POST',
             body: JSON.stringify({csaName: csaName, password: password, email: email, firstName: firstName, lastName: lastName, produce: produce, bio: bio, zipcode: parseInt(zipcode)}),
             headers: new Headers({

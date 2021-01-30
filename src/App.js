@@ -6,7 +6,7 @@ import UserLogin from './components/auth/UserSignUp/userSignup';
 import CSAForm from './components/auth/CSASignUp/CSAForm'
 import SignupLanding from './components/auth/SignUpLanding/SignupLanding'
 import Footer from './components/Footer/index';
-import Profiler from './components/Profiler/test'
+import Profiler from './components/Profiler/Profiler'
 import Navbar from './components/Navbar/index'
 import UserAccount from './components/Account/UserAccount';
 import CSAAccount from './components/Account/CSAAccount';
